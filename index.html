@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Sign Up Form by Younes</title>
+  </head>
+  <body>
+    <main class="container">
+      <div class="form-container">
+        <!-- image section -->
+        <div class="image-section">
+          <img src="./assets/form-bg1.jpg" alt="first image" />
+
+          <a href="" class="back-to-website">Back to website &rarr;</a>
+          <h1>Capturing Moments, Creating Memories</h1>
+        </div>
+        <!-- form section -->
+        <div class="form-section">
+          <div class="text-section">
+            <h1>Create an account</h1>
+            <p>Already have an account? <a href="">Log in</a></p>
+          </div>
+          <form action="https://httpbin.org/post" method="post">
+            <fieldset>
+              <input
+                type="text"
+                name="first-name"
+                id="first-name"
+                placeholder="First name"
+                required
+              />
+              <input
+                type="text"
+                name="last-name"
+                id="last-name"
+                placeholder="Last name"
+                required
+              />
+            </fieldset>
+            <input
+              type="email"
+              name="emil"
+              id="email"
+              placeholder="Email"
+              required
+            />
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Enter your password"
+              required
+            />
+            <span>
+              <input
+                type="checkbox"
+                name="terms-and-condition"
+                id="terms-and-condition"
+                value="true"
+                required
+              />
+              <p>I Agree to the <a href="">Terms & Conditions</a></p>
+            </span>
+            <button type="submit" class="btn">Create account</button>
+          </form>
+
+          <span class="or-register-with"></span>
+
+          <div class="services-login">
+            <a href="" class="google-login btn"
+              ><img
+                src="./assets/search.png"
+                alt="google logo"
+                class="services-logo"
+              />Google</a
+            >
+            <a href="" class="apple-login btn"
+              ><img
+                src="./assets/apple.png"
+                alt="apple logo"
+                class="services-logo"
+              />Apple</a
+            >
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,276 @@
+/* RESET CSS */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/* *************************************************************** */
+
+@font-face {
+  font-family: "figtree-italic";
+  src: url(./assets/fonts/Figtree-Italic-VariableFont_wght.ttf);
+}
+@font-face {
+  font-family: "figtree";
+  src: url(./assets/fonts/Figtree-VariableFont_wght.ttf);
+}
+
+:root {
+  font-size: 10px;
+  font-family: "figtree", sans-serif;
+  --main-bg: #555484;
+  --form-bg: #23212d;
+  --font-color: #fff;
+  --gray-color: #413f49;
+  --primary-color: #8229ff;
+  --input-bg: #413e51;
+  --input-text: #a7a6af;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  color: var(--font-color);
+  font-size: 1.6rem;
+}
+
+.container {
+  width: inherit;
+  height: inherit;
+  background-color: var(--main-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container {
+  display: flex;
+  padding: 1.6rem;
+  background-color: var(--form-bg);
+  width: 70vw;
+  height: 80vh;
+  border-radius: 2rem;
+  gap: 2rem;
+}
+
+.form-container div {
+  width: 50%;
+}
+
+.form-container .image-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-section a,
+.image-section h1,
+.image-section img {
+  position: absolute;
+}
+
+.image-section img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2rem;
+}
+
+.image-section a {
+  top: 2rem;
+  right: 2rem;
+  text-decoration: none;
+  color: var(--font-color);
+  background-color: var(--gray-color);
+  padding: 0.5rem 2rem;
+  border-radius: 5rem;
+  font-weight: 500;
+}
+
+.image-section h1 {
+  font-size: 3.2rem;
+  bottom: 2rem;
+  left: calc(100vw * 0.08);
+  width: 50%;
+  text-align: center;
+  color: var(--font-color);
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 8%;
+  gap: 2rem;
+  align-self: center;
+}
+
+.form-section .text-section {
+  width: 100%;
+  text-align: justify;
+  margin-bottom: 4rem;
+}
+
+.text-section h1 {
+  font-size: 4rem;
+}
+
+a {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+fieldset {
+  border: none;
+  display: flex;
+  gap: 1.6rem;
+}
+
+:focus {
+  outline: none;
+}
+
+.form-section input {
+  width: 100%;
+  padding: 1.6rem;
+  border-radius: 1rem;
+  border: none;
+  background-color: var(--input-bg);
+  color: var(--input-text);
+}
+
+.form-section input:focus {
+  color: var(--font-color);
+  border: 2px solid var(--primary-color);
+}
+
+.form-section span {
+  display: flex;
+  gap: 1rem;
+  padding-left: 1rem;
+}
+
+.form-section span input {
+  max-width: fit-content;
+}
+
+.form-section button[type="submit"] {
+  background-color: var(--primary-color);
+}
+
+/* button general class */
+.btn {
+  padding: 1.6rem;
+  border: none;
+  border-radius: 1rem;
+  color: var(--font-color);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.form-section .or-register-with {
+  background-color: var(--main-bg);
+  height: 0.3rem;
+  position: relative;
+}
+.form-section .or-register-with::after {
+  content: "Or register with";
+  position: absolute;
+  font-size: 1.5rem;
+  color: var(--main-bg);
+  left: calc(100vw * 0.08);
+  top: -1rem;
+  background-color: var(--form-bg);
+  padding: 0 1rem;
+}
+
+.services-login {
+  display: flex;
+  gap: 1.6rem;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.services-login a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  gap: 0.5rem;
+  border: 1px solid var(--primary-color);
+}
+.services-login .services-logo {
+  width: 2.5rem;
+  height: 2.5rem;
+}
