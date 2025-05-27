@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
+    <script src="./js.js" defer></script>
     <title>Sign Up Form by Younes</title>
   </head>
   <body>
@@ -12,7 +13,6 @@
         <!-- image section -->
         <div class="image-section">
           <img src="./assets/form-bg1.jpg" alt="first image" />
-
           <a href="" class="back-to-website">Back to website &rarr;</a>
           <h1>Capturing Moments, Creating Memories</h1>
           <div class="icon-scroll"></div>
@@ -24,25 +24,23 @@
             <p>Already have an account? <a href="">Log in</a></p>
           </div>
           <form action="https://httpbin.org/post" method="post">
-            <fieldset>
-              <input
-                type="text"
-                name="first-name"
-                id="first-name"
-                placeholder="First name"
-                required
-              />
-              <input
-                type="text"
-                name="last-name"
-                id="last-name"
-                placeholder="Last name"
-                required
-              />
-            </fieldset>
+            <input
+              type="text"
+              name="first-name"
+              id="first-name"
+              placeholder="First name"
+              required
+            />
+            <input
+              type="text"
+              name="last-name"
+              id="last-name"
+              placeholder="Last name"
+              required
+            />
             <input
               type="email"
-              name="emil"
+              name="email"
               id="email"
               placeholder="Email"
               required
@@ -51,6 +49,14 @@
               type="password"
               name="password"
               id="password"
+              placeholder="Enter your password"
+              required
+              minlength="8"
+            />
+            <input
+              type="password"
+              name="password"
+              id="password-conf"
               placeholder="Enter your password"
               required
               minlength="8"
@@ -65,7 +71,9 @@
               />
               <p>I Agree to the <a href="">Terms & Conditions</a></p>
             </span>
-            <button type="submit" class="btn">Create account</button>
+            <button type="submit" class="btn submit-form">
+              Create account
+            </button>
           </form>
 
           <span class="or-register-with"></span>
@@ -87,6 +95,7 @@
               />Apple</a
             >
           </div>
+          <div class="error-message"></div>
         </div>
       </div>
     </main>

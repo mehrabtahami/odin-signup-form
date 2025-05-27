@@ -108,7 +108,8 @@ body {
 }
 
 .form-container {
-  display: flex;
+  display: grid;
+  grid-template: 1fr / 1fr 1fr;
   padding: 1.6rem;
   background-color: var(--form-bg);
   width: 70vw;
@@ -117,40 +118,41 @@ body {
   gap: 2rem;
 }
 
-/* only select direct child */
-.form-container > div {
-  width: 50%;
-}
-
 .form-container .image-section {
   position: relative;
-  overflow: hidden;
+  display: grid;
+  grid-template: 1fr / 1fr;
+  min-height: 300px;
 }
 
-.image-section a,
-.image-section h1,
-.image-section img {
-  position: absolute;
+.image-section > * {
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+  position: relative;
 }
 
 .image-section img {
-  position: absolute;
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 2rem;
+  z-index: 1;
 }
 
 .image-section a {
-  top: 2rem;
-  right: 2rem;
   text-decoration: none;
   color: var(--font-color);
   background-color: var(--gray-color);
   padding: 0.5rem 2rem;
+  max-width: fit-content;
+  height: 3.5rem;
   border-radius: 5rem;
   font-weight: 500;
   transition: all 0.2s ease-in-out;
+  z-index: 2;
+  align-self: start;
+  justify-self: end;
+  margin: 1rem 1rem 0 0;
 }
 
 .image-section a:hover {
@@ -158,12 +160,14 @@ body {
 }
 
 .image-section h1 {
+  width: 90%;
+  align-self: end;
+  justify-self: center;
   font-size: 3.2rem;
-  bottom: 5rem;
-  left: calc(100vw * 0.08);
-  width: 50%;
   text-align: center;
   color: var(--font-color);
+  z-index: 2;
+  margin-bottom: 2rem;
 }
 
 .form-section {
@@ -178,7 +182,7 @@ body {
 .form-section .text-section {
   width: 100%;
   text-align: left;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 
 .text-section h1 {
@@ -191,15 +195,41 @@ a {
 }
 
 form {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "fname lname"
+    "email email"
+    "pass1 pass2"
+    "terms terms";
   gap: 1.6rem;
 }
 
-fieldset {
-  border: none;
+form input#first-name {
+  grid-area: fname;
+}
+
+form input#last-name {
+  grid-area: lname;
+}
+
+form input#email {
+  grid-area: email;
+}
+
+form input#password {
+  grid-area: pass1;
+}
+
+form input#password-conf {
+  grid-area: pass2;
+}
+
+.form-section span {
+  grid-column: 1 / span 2;
   display: flex;
-  gap: 1.6rem;
+  gap: 1rem;
+  justify-content: center;
 }
 
 :focus {
@@ -220,17 +250,12 @@ fieldset {
   border: 1px solid var(--primary-color);
 }
 
-.form-section span {
-  display: flex;
-  gap: 1rem;
-  padding-left: 1rem;
-}
-
 .form-section span input {
   max-width: fit-content;
 }
 
 .form-section button[type="submit"] {
+  grid-column: 1 / span 2;
   background-color: var(--primary-color);
   border: 1px solid var(--primary-color);
   transition: all 0.2s ease-in-out;
@@ -261,7 +286,7 @@ fieldset {
   position: absolute;
   font-size: 1.5rem;
   color: var(--main-bg);
-  left: calc(100vw * 0.08);
+  left: calc(50% - 6rem);
   top: -1rem;
   background-color: var(--form-bg);
   padding: 0 1rem;
@@ -303,39 +328,16 @@ input:user-invalid {
   border: 1px solid red;
 }
 
-/* scroll icon animated */
-.icon-scroll,
-.icon-scroll:before {
-  position: absolute;
-  left: 50%;
+.error-message {
+  color: red;
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 2rem;
+  text-decoration: underline;
 }
-.icon-scroll {
-  width: 20px;
-  height: 30px;
-  margin-left: -20px;
-  bottom: 1.5%;
-  margin-top: -35px;
-  box-shadow: inset 0 0 0 1px #fff;
-  border-radius: 25px;
-}
-.icon-scroll:before {
-  content: "";
-  width: 4px;
-  height: 4px;
-  background: #fff;
-  margin-left: -2px;
-  top: 8px;
-  border-radius: 4px;
-  animation-duration: 1.5s;
-  animation-iteration-count: infinite;
-  animation-name: scroll;
-}
-@keyframes scroll {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(46px);
-  }
+
+/* passowrd box on error */
+.error-input {
+  outline: 1px solid red;
 }
