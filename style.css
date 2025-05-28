@@ -3,6 +3,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 * {
@@ -143,9 +144,8 @@ body {
   text-decoration: none;
   color: var(--font-color);
   background-color: var(--gray-color);
-  padding: 0.5rem 2rem;
+  padding: 0.5rem 1.5rem;
   max-width: fit-content;
-  height: 3.5rem;
   border-radius: 5rem;
   font-weight: 500;
   transition: all 0.2s ease-in-out;
@@ -153,6 +153,7 @@ body {
   align-self: start;
   justify-self: end;
   margin: 1rem 1rem 0 0;
+  font-size: 1.3rem;
 }
 
 .image-section a:hover {
@@ -173,20 +174,19 @@ body {
 .form-section {
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  padding: 8%;
+  padding: 0 8%;
   gap: 2rem;
-  align-self: center;
+  justify-content: center;
 }
 
 .form-section .text-section {
   width: 100%;
   text-align: left;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 }
 
 .text-section h1 {
-  font-size: 4rem;
+  font-size: 3rem;
 }
 
 a {
@@ -277,19 +277,18 @@ form input#password-conf {
 }
 
 .form-section .or-register-with {
-  background-color: var(--main-bg);
-  height: 0.3rem;
   position: relative;
+  font-size: 1.3rem;
+  color: var(--input-text);
+  text-align: center;
 }
-.form-section .or-register-with::after {
-  content: "Or register with";
-  position: absolute;
-  font-size: 1.5rem;
-  color: var(--main-bg);
-  left: calc(50% - 6rem);
-  top: -1rem;
-  background-color: var(--form-bg);
-  padding: 0 1rem;
+.or-register-with::before,
+.or-register-with::after {
+  content: "";
+  width: 8vw;
+  height: 0.1rem;
+  background-color: var(--input-text);
+  margin: auto 0;
 }
 
 .services-login {
@@ -313,6 +312,7 @@ form input#password-conf {
 .services-login .services-logo {
   width: 2.5rem;
   height: 2.5rem;
+  flex-shrink: 0;
 }
 
 .services-login a:hover {
@@ -333,11 +333,100 @@ input:user-invalid {
   font-weight: bold;
   font-size: 1.5rem;
   text-align: center;
-  margin-top: 2rem;
+  margin-top: 1rem;
   text-decoration: underline;
 }
 
 /* passowrd box on error */
 .error-input {
   outline: 1px solid red;
+}
+
+@media screen and (max-width: 937px) {
+  .form-section .text-section {
+    width: 100%;
+    margin-bottom: 0;
+  }
+  .text-section h1 {
+    font-size: 2.5rem;
+  }
+  .form-section input {
+    padding: 1rem;
+  }
+  .form-section input::placeholder {
+    font-size: 1.4rem;
+  }
+  form {
+    grid-template-areas:
+      "fname lname"
+      "email email"
+      "pass1 pass1"
+      "pass2 pass2"
+      "terms terms";
+    gap: 1rem;
+  }
+  .form-section {
+    padding: 1rem;
+  }
+  .btn {
+    padding: 1.2rem;
+    font-size: 1.4rem;
+  }
+  .form-section span p {
+    font-size: 1.4rem;
+    margin: 1rem 0;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .form-container {
+    grid-template: 1fr / 1fr;
+    width: 100%;
+    height: 100%;
+    gap: 1.5rem;
+    border-radius: 0;
+  }
+  .form-container .image-section {
+    min-height: 100px;
+  }
+  .image-section h1 {
+    font-size: 3rem;
+  }
+}
+
+@media screen and (max-width: 494px) {
+  .image-section h1 {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-height: 730px) {
+  .form-container .image-section {
+    display: none;
+  }
+  .form-container {
+    display: block;
+  }
+  body {
+    background-color: var(--form-bg);
+  }
+}
+
+@media screen and (max-height: 620px) {
+  .form-container {
+    overflow: scroll;
+    scrollbar-width: none;
+  }
+  body {
+    background-color: var(--form-bg);
+  }
+}
+
+@media screen and (max-width: 794px), (max-height: 787px) {
+  .form-section span p {
+    font-size: 1.2rem;
+  }
+  .form-container {
+    padding: 1rem;
+  }
 }
